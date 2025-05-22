@@ -1,41 +1,95 @@
-# Telco-Customer-Churn
-Telco Customer Churn Prediction: A Comprehensive Analysis and Model Evaluation
-Project Overview
-Customer churn is a critical issue in the telecommunications industry, where retaining existing customers is more cost-effective than acquiring new ones. This project aims to predict customer churn for a telecom company using machine learning techniques, enabling proactive retention strategies.
+📘 Project Overview
+Title: Telco-Customer-Churn Prediction
 
-Dataset
-The dataset used in this project is the Telco Customer Churn dataset, which contains information about 60,986 customers. The features include:
+Objective:
+The primary aim of this project was to develop a predictive model that can accurately identify customers who are likely to churn (discontinue services) in a telecommunications company. By leveraging customer demographics, service usage patterns, and account information, the goal was to provide actionable insights that can help in formulating targeted retention strategies.
 
-Demographics: Gender, SeniorCitizen, Partner, Dependents
+Dataset:
+The analysis was conducted using the Telco Customer Churn dataset, which contains information about 64,374 customers across 15 features. These features encompass customer demographics, service usage, and account details, with the target variable being 'Churn', indicating whether a customer has left the company.
 
-Account Information: Tenure, Contract, PaperlessBilling, PaymentMethod
+🔍 Data Preprocessing & Exploration
+Initial Steps:
 
-Service Usage: MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies
+Data Loading:
+The dataset was loaded into a Pandas DataFrame for initial inspection and analysis.
 
-Billing Information: MonthlyCharges, TotalCharges
+Feature Inspection:
+The dataset comprises the following columns:
 
-Target Variable: Churn (Yes/No)
+Column Name	Description
+CustomerID	= Unique identifier for each customer
+Age	= Age of the customer
+Gender	= Gender of the customer
+Tenure	= Number of months the customer has been with the company
+Usage Frequency	= Frequency of service usage
+Support Calls	= Number of support calls made by the customer
+Payment Delay =	Delay in payment (if any)
+Subscription Type =	Type of subscription (e.g., monthly, yearly)
+Contract Length	= Duration of the contract
+Total Spend =	Total expenditure by the customer
+Last Interaction	= Time since the last interaction with the customer
+Churn =	Target variable indicating customer churn (1 = Yes, 0 = No)
 
-Data Preprocessing
-The data underwent several preprocessing steps:
+Data Cleaning:
 
-Handling Missing Values: Missing values were identified and appropriately handled.
+Missing Values:
+Identified and handled missing values appropriately to ensure data integrity.
 
-Encoding Categorical Variables: Categorical variables were encoded into numerical values for model compatibility.
+Data Type Conversion:
+Converted categorical variables into numerical formats using encoding techniques.
 
-Feature Scaling: Numerical features were scaled to ensure consistent ranges, improving model performance.
+Feature Scaling:
+Standardized numerical features to bring them to a common scale, enhancing model performance.
 
-Exploratory Data Analysis (EDA)
-EDA revealed key insights:
+📊 Exploratory Data Analysis (EDA)
+Churn Distribution:
+Analyzed the distribution of the target variable 'Churn' to understand the balance between churned and retained customers.
 
-Churn Distribution: The dataset is balanced, with an equal number of churned and non-churned customers.
+Correlation Analysis:
+Investigated correlations between numerical features to identify potential relationships and multicollinearity.
 
-Feature Correlations: Strong correlations were found between features like MonthlyCharges and TotalCharges, and the target variable Churn.
+Feature Importance:
+Utilized techniques like Recursive Feature Elimination (RFE) to rank features based on their importance in predicting churn.
 
-Model Development
-Several machine learning models were implemented and evaluated:
+🤖 Model Development
+Model Selection:
+Several machine learning models were trained and evaluated to predict customer churn:
 
-Logistic Regression
+Logistic Regression:
+A statistical model used for binary classification tasks.
+
+K-Nearest Neighbors (KNN):
+A non-parametric method used for classification based on distance metrics.
+
+Decision Tree Classifier:
+A model that splits data into subsets based on feature values, forming a tree-like structure.
+
+Random Forest Classifier:
+An ensemble method that constructs multiple decision trees and merges their outputs for improved accuracy.
+
+Model Evaluation Metrics:
+
+Accuracy:
+The proportion of correctly predicted instances.
+
+AUC (Area Under the Curve):
+A performance measurement for classification problems at various thresholds settings.
+
+Recall:
+The ability of the model to identify all relevant instances (true positives).
+
+Precision:
+The ability of the model to identify only relevant instances (true positives).
+
+F1-Score:
+The weighted average of Precision and Recall.
+
+
+
+Results:
+
+Logistic Regression:
+
 Accuracy: 77.3%
 
 AUC: 0.8614
@@ -46,9 +100,10 @@ Precision: 74.14%
 
 F1-Score: 78.7%
 
-Average Precision-Recall Score: 85.89%
 
-K-Nearest Neighbors (KNN)
+
+KNN:
+
 Accuracy: 77.43%
 
 AUC: 0.825
@@ -59,9 +114,10 @@ Precision: 83.73%
 
 F1-Score: 75.1%
 
-Average Precision-Recall Score: 85.49%
 
-Decision Tree Classifier
+
+Decision Tree Classifier:
+
 Accuracy: 95.69%
 
 AUC: 0.9569
@@ -72,9 +128,10 @@ Precision: 95.65%
 
 F1-Score: 95.69%
 
-Average Precision-Recall Score: 93.7%
 
-Random Forest Classifier
+
+Random Forest Classifier:
+
 Accuracy: 96.26%
 
 AUC: 0.9962
@@ -84,8 +141,3 @@ Recall: 94.38%
 Precision: 98.07%
 
 F1-Score: 96.19%
-
-Average Precision-Recall Score: 99.63%
-
-Model Evaluation
-The Random Forest Classifier outperformed other models in terms of accuracy, AUC, and F1-Score. However, the high accuracy suggests potential overfitting, possibly due to class imbalance or data leakage.
